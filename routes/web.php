@@ -20,3 +20,34 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+/**
+ * Articles
+ */
+Route::resource('articles', 'ArticleController');
+
+   
+/**
+ * Catégories
+ */
+Route::get('/categories', function(){
+    return view('admin.categories.index');
+} );
+
+Route::get('/categories/posts', function(){
+    return view('admin.categories.posts');
+} );
+
+
+/**
+ * Emploi & Freelances
+ */
+Route::get('/freelances', function(){
+    return view('admin.freelances.index');
+} );
+
+Route::get('/emplois', function(){
+    return view('admin.emplois.index');
+} );
+
+
+

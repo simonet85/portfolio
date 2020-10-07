@@ -22,18 +22,20 @@
                                             </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="hire-form">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="fname" placeholder="Prénom">
+                                        <form class="hire-form was-validated">
+                                            <div class="form-group ">
+                                                <input type="text" class="form-control is-invalid" id="fname" placeholder="Prénom" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" class="form-control" id="semail" placeholder="Email">
+                                                <input type="text" class="form-control is-invalid" id="semail" placeholder="johndoe@gmail.com" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="cname" placeholder="Entreprise">
+                                                <div class="form-group">
+                                                  <textarea class="form-control is-invalid" name="" id="cname" placeholder="Votre Projet" rows="3" required></textarea>
+                                                </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="mnumber" placeholder="Téléphone">
+                                                <input type="tel" class="form-control is-invalid" id="mnumber" placeholder="Téléphone" required>
                                             </div>
                                             <div>
                                                 <button class="btn btn-custom w-100">Envoyer</button>
