@@ -13,6 +13,9 @@
                 <li class="nav-item active">
                     <a href="#home" class="nav-link">Accueil</a>
                 </li>
+                {{-- <li class="nav-item active">
+                    <a href="{{url('/test')}}" class="nav-link">Test</a>
+                </li> --}}
                 <li class="nav-item">
                     <a href="#about" class="nav-link">À propos de</a>
                 </li>

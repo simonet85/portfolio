@@ -13,7 +13,7 @@ class Article extends Model
     protected $guarded = [];
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'article_categories');
+        return $this->hasMany(Category::class, 'article_categories');
     }
 }
 

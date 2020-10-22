@@ -23,13 +23,14 @@
         <link rel="stylesheet" href="{{asset('front/css/owl.transitions.css')}}" />
         <!-- Custom style Css -->
         <link href="{{asset('front/css/style.css')}}" rel="stylesheet">
-
+       
     </head>
     <body>
 
         @yield('content')
-        
-       <!-- JAVASCRIPTS -->
+       
+        <!-- JAVASCRIPTS -->
+        <script src="{{asset('front/js/jquery.min.js')}}"></script>
        <script src="{{asset('front/js/jquery.min.js')}}"></script>
        <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
        <script src="{{asset('front/js/popper.min.js')}}"></script>
@@ -58,6 +59,210 @@
                    backDelay: 3000
                });
            });
+           $(document).ready(function(){
+            
+                $('#all').click(function(e){
+                    //Prevent default link behaviour
+                    e.preventDefault();
+                    //Grab the href attribute
+                    var url = $(this).attr('href');
+                    //Initialise the variable to hold html
+                    var bodydata = '';
+                    // ajax setup
+                    $.ajax({
+                        url:url,
+                        method:"GET",
+                        dataType:"json",
+                        success:function(response){
+                            
+                            for(var i = 0; i < response.length; i++){
+                                var id = response[i].id;
+                                var name = response[i].name;
+                                var description = response[i].description;
+                                var image = response[i].image;
+                                bodydata +=`<div class="col-lg-4 vue node mb-4" >
+                                <div class="work_img_box rounded" >
+                                <a class="img-zoom" href="/assets/uploads/${image}"></a>
+                                <div class="work_images">
+                                    <img src="/assets/uploads/${image}" alt="image" class="img-fluid mx-auto d-block">
+                                    <div class="work_overlay">
+                                        <h4 class="mb-0">${description}</h4>
+                                        <h6 class="mb-0">${name}</h6>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>`;
+                           
+                            }
+                            $('#post').append(bodydata);
+                            // console.log(bodydata)
+                        }
+
+                    })
+                })
+
+                $('#seo').click(function(e){
+                    e.preventDefault();
+                    // var elementId = $('#seo').attr('id');
+                    var url = $(this).attr('href');
+                    var bodydata = '';
+                    // alert('href :'+getHref);
+                    $.ajax({
+                        url:url,
+                        method:"GET",
+                        dataType:"json",
+                        success:function(response){
+                            // console.log(response)
+                            for(var i = 0; i < response.length; i++){
+                                var id = response[i].id;
+                                var name = response[i].name;
+                                var description = response[i].description;
+                                var image = response[i].image;
+                                bodydata +=`<div class="col-lg-4 vue node mb-4" >
+                                <div class="work_img_box rounded" >
+                                <a class="img-zoom" href="/assets/uploads/${image}"></a>
+                                <div class="work_images">
+                                    <img src="/assets/uploads/${image}" alt="image" class="img-fluid mx-auto d-block">
+                                    <div class="work_overlay">
+                                        <h4 class="mb-0">${description}</h4>
+                                        <h6 class="mb-0">${name}</h6>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>`;
+                           
+                            }
+                            $('#post').empty();
+                            $('#post').append(bodydata);
+                            // console.log(bodydata)
+                        }
+
+                    })
+                })
+
+                $('#webdesign').click(function(e){
+                    e.preventDefault();
+                    // var elementId = $('#webdesign').attr('id');
+                    var url = $(this).attr('href');
+                    var bodydata = '';
+                    // alert('href :'+getHref);
+                    $.ajax({
+                        url:url,
+                        method:"GET",
+                        dataType:"json",
+                        success:function(response){
+                            // console.log(response)
+                            for(var i = 0; i < response.length; i++){
+                                var id = response[i].id;
+                                var name = response[i].name;
+                                var description = response[i].description;
+                                var image = response[i].image;
+                                bodydata +=`<div class="col-lg-4 vue node mb-4" >
+                                <div class="work_img_box rounded" >
+                                <a class="img-zoom" href="/assets/uploads/${image}"></a>
+                                <div class="work_images">
+                                    <img src="/assets/uploads/${image}" alt="image" class="img-fluid mx-auto d-block">
+                                    <div class="work_overlay">
+                                        <h4 class="mb-0">${description}</h4>
+                                        <h6 class="mb-0">${name}</h6>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>`;
+                           
+                            }
+                            $('#post').append(bodydata);
+                            // console.log(bodydata)
+                        }
+
+                    })
+                })
+
+                $('#project').click(function(e){
+                    e.preventDefault();
+                    // var elementId = $('#project').attr('id');
+                    var url = $(this).attr('href');
+                    var bodydata = '';
+                    // alert('url :'+url);
+                    $.ajax({
+                        url:url,
+                        method:"GET",
+                        dataType:"json",
+                        success:function(response){
+                            // console.log(response)
+                            for(var i = 0; i < response.length; i++){
+                                var id = response[i].id;
+                                var name = response[i].name;
+                                var description = response[i].description;
+                                var image = response[i].image;
+                                bodydata +=`<div class="col-lg-4 vue node mb-4" >
+                                <div class="work_img_box rounded" >
+                                <a class="img-zoom" href="/assets/uploads/${image}"></a>
+                                <div class="work_images">
+                                    <img src="/assets/uploads/${image}" alt="image" class="img-fluid mx-auto d-block">
+                                    <div class="work_overlay">
+                                        <h4 class="mb-0">${description}</h4>
+                                        <h6 class="mb-0">${name}</h6>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>`;
+                           
+                            }
+                            $('#post').empty();
+                            $('#post').append(bodydata);
+                        }
+
+                    })
+                })
+                $('#wordpress').click(function(e){
+                    e.preventDefault();
+                    // var elementId = $('#wordpress').attr('id');
+                    var url = $(this).attr('href');
+                    var bodydata = '';
+                   
+                    $.ajax({
+                        url:url,
+                        method:"GET",
+                        dataType:"json",
+                        success:function(response){
+                            // console.log(response)
+                            for(var i = 0; i < response.length; i++){
+                                var id = response[i].id;
+                                var name = response[i].name;
+                                var description = response[i].description;
+                                var image = response[i].image;
+                                bodydata +=`<div class="col-lg-4 vue node mb-4" >
+                                <div class="work_img_box rounded" >
+                                <a class="img-zoom" href="/assets/uploads/${image}"></a>
+                                <div class="work_images">
+                                    <img src="/assets/uploads/${image}" alt="image" class="img-fluid mx-auto d-block">
+                                    <div class="work_overlay">
+                                        <h4 class="mb-0">${description}</h4>
+                                        <h6 class="mb-0">${name}</h6>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>`;
+                           
+                            }
+                            $('#post').empty();
+                            $('#post').append(bodydata);
+                            // console.log(bodydata)
+                        }
+
+                    })
+                })
+                
+           })
        </script>
+       
+            
+       
     </body>
 </html>

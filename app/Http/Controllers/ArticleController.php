@@ -60,6 +60,7 @@ class ArticleController extends Controller
             'description'=>$request->description,
             'image'=>$request->image_file->getClientOriginalName(),
             'category_id'=>$request->category_id,
+            'slug'=>$request->name,
         ]);
         //Display flash Message
         Session::flash('success', 'Article Ajouter avec succès');
