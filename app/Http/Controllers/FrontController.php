@@ -19,7 +19,10 @@ class FrontController extends Controller
     public function index()
     {
        
-        return view('index')->with('articles', Article::all());
+        return view('index')->with('articles', Article::all())
+                            ->with('categories', Category::all())
+                            ->with('educations', Education::all())
+                            ->with('experiences', Experience::all());
     }
 
     /**

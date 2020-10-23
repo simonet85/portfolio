@@ -11,9 +11,9 @@ class Article extends Model
      * 
      */
     protected $guarded = [];
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(Category::class, 'article_categories');
+        return $this->belongsTo(Category::class);
     }
 }
 

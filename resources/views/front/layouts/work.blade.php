@@ -14,7 +14,7 @@
                
                 <div class="row mt-3" >
                     <div class="col-lg-12">
-                        {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto" style="width: 50%">  --}}
+                       
                             <ul class=" text-center list-unstyled list-inline mb-0 text-capitlize work_menu" id="menu-filter" >
                                 <li class="list-inline-item ">
                                     <a href="{{route('work')}}"
@@ -35,7 +35,7 @@
                                     <a id="wordpress" class="" href="{{route('articlepost.show',['articlepost'=>'wordpress'])}}" data-filter=".wordpress">Wordpress</a>
                                 </li>
                             </ul>
-                        {{-- </nav> --}}
+                       
                     </div>
                 </div>
                 <div class="row mt-3"  id="post"></div>
