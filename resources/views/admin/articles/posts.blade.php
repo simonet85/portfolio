@@ -20,7 +20,7 @@
                 Ajouter un article
             </div>
 
-            @include('inc.messages')
+            {{-- @include('inc.messages') --}}
             
             <div class="card-body">
             <form class="was-validated" action="{{route('articles.store')}}" method="POST" enctype="multipart/form-data">
@@ -41,14 +41,20 @@
                       <div class="invalid-feedback">Choisissez un option</div>
                     </div>
                   <div class="form-group">
-                    <textarea class="form-control" name="description" id="" rows="3" required placeholder="Décrivez votre projet"></textarea>
+                    <textarea class="form-control" name="description" id="summary-ckeditor" rows="3" required placeholder="Décrivez votre projet"></textarea>
                     <div class="invalid-feedback">Décrivez le projet</div>
                   </div>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="validatedCustomFile" name="image_file" required>
+                      <input onchange="openFile(event);" type="file" class="custom-file-input" id="validatedCustomFile" name="image_file" required>
                       <label class="custom-file-label" for="validatedCustomFile">Choisir un fichier...</label>
                       <div class="invalid-feedback">Choisissez un fichier</div>
                     </div>
+                    <div class="form-group"> <br>
+                      
+                      <td><img id="output" style="width: 150px"></td>
+                    </div>
+                   
+                    
                     <div class="form-group mt-2">
                         <button type="sumit" class="btn btn-dark">Soumettre</button>
                     </div>

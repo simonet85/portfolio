@@ -47,10 +47,10 @@
                                     <td class="text-left">{{$contact->message}}</td>
                                    
                                     <td >
-                                        <a href="{{route('contacts.edit', ['contact'=>$contact->id])}}" class="btn btn-warning btn-sm"  data-toggle="tooltip" data-placement="top" title="modifier"><i class="fas fa-pencil-alt " aria-hidden="true"  ></i></a>
+                                        <a href="{{route('contact.edit', ['contact'=>$contact->id])}}" class="btn btn-warning btn-sm"  data-toggle="tooltip" data-placement="top" title="modifier"><i class="fas fa-pencil-alt " aria-hidden="true"  ></i></a>
                                     </td>
                                     <td>   
-                                        <form action="{{route('contacts.destroy', ['contact'=>$contact->id])}}" method="POST">
+                                        <form action="{{route('contact.destroy', ['contact'=>$contact->id])}}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                             

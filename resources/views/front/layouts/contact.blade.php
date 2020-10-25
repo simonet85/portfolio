@@ -42,31 +42,28 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <form class="business_form_custom">
-                    <div class="form-row mt-3">
-                        <div class="col">
-                            <input name="name" id="name" type="text" class="form-control" placeholder="votre nom...">
+                <form class="hire-form was-validated" method="POST" action="{{route('contact.store')}}">
+                    @csrf
+                    <div class="form-group ">
+                        <input type="text" class="form-control is-invalid" id="fname" name="name" placeholder="Prénom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control is-invalid" id="semail" 
+                        name="email"  placeholder="johndoe@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control is-invalid" id="mnumber" placeholder="Votre projet" name="projet" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                          <textarea class="form-control is-invalid" name="message" id="cname" placeholder="Votre Message" rows="3" required></textarea>
                         </div>
                     </div>
-                    <div class="form-row mt-3">
-                        <div class="col">
-                            <input name="email" id="email" type="email" class="form-control" placeholder="votre email...">
-                        </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control is-invalid" id="mnumber" placeholder="Téléphone" name="numero" required>
                     </div>
-                    <div class="form-row mt-3">
-                        <div class="col">
-                            <input type="text" class="form-control" id="subject" placeholder="Votre Projet..">
-                        </div>
-                    </div>
-                    <div class="form-row mt-3">
-                        <div class="col">
-                            <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="votre message..."></textarea>
-                        </div>
-                    </div>
-                    <div class="form-row mt-3">
-                        <div class="col">
-                            <input type="submit" id="submit" name="send" class="submitBnt btn btn-custom" value="Envoyer Message">
-                        </div>
+                    <div>
+                        <input type="submit" name="Envoyer" class="btn btn-custom w-100">
                     </div>
                 </form>
             </div>

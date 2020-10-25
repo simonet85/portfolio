@@ -33,24 +33,30 @@
                 </div> 
                 <div class="form-group">
                     <select class="custom-select" name="category_id" required>
+                    @foreach ($categories as $category)
+                        
+                        <option value="{{$category->id}}" 
+                            @if ( $article->category->id == $category->id) 
+                                selected
+                            @endif 
+                        >{{$category->name}}</option>
                     
-                        <option value="{{$article->category->id}}">{{$article->category->name}}</option>
-                    
+                    @endforeach
                     </select>
                     <div class="invalid-feedback">Choisissez un option</div>
                 </div>
                   <div class="form-group">
-                    <textarea class="form-control" name="description" id="" rows="3" required placeholder="Décrivez votre projet">{{$article->description}}</textarea>
+                    <textarea class="form-control" name="description" id="summary-ckeditor" rows="3" required placeholder="Décrivez votre projet">{{$article->description}}</textarea>
                     <div class="invalid-feedback">Décrivez le projet</div>
                   </div>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="validatedCustomFile" name="image_file" required>
+                      <input type="file" class="custom-file-input" id="validatedCustomFile" name="image_file" onchange="openFile(event);" required>
                       <label class="custom-file-label" for="validatedCustomFile">Choisir un fichier...</label>
                       <div class="invalid-feedback">Choisissez un fichier</div>
                     </div>
                     <div class="form-group">
-                    <label for="article-image">Image</label>
-                    <td><img src="{{url('assets/uploads').'/'.$article->image}}" alt="{{$article->name}}" class="img-thumbnail" style="width: 150px;"></td>
+                    <label for="article-image">Image</label> <br>
+                    <td><img id='output' src="{{url('assets/uploads').'/'.$article->image}}" alt="{{$article->name}}" class="img-thumbnail" style="width: 150px;"></td>
                     </div>
                     
                     <div class="form-group mt-2">

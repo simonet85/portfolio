@@ -10,6 +10,8 @@
         <link href="{{asset('admin/css/styles.css')}}" rel="stylesheet" />
         <link href="{{url('https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" crossorigin="anonymous" />
         <script src="{{url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js')}}" crossorigin="anonymous"></script>
+        <script src="{{url('//cdn.ckeditor.com/4.14.0/standard/ckeditor.js')}}"></script>
+        <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -84,35 +86,28 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="{{url('/categories/posts')}}">Ajouter une catégorie</a>
-                                        <a class="nav-link" href="{{url('/categories')}}">Voir tous les catégorie</a>
+                                        <a class="nav-link" href="{{route('categories.create')}}">Ajouter une catégorie</a>
+                                        <a class="nav-link" href="{{route('categories.index')}}">Voir tous les catégorie</a>
                                     </nav>
                                 </nav>
                             </div>
 
                             {{-- Emploi --}}
-                            <div class="sb-sidenav-menu-heading">Gestionnaire emplois</div>
+                            <div class="sb-sidenav-menu-heading">Contacts & Messages</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayoutsEmploi" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
-                                Emplois & Freelances
+                                Contacts & Messages
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayoutsEmploi" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{url('/emplois')}}">Emplois</a>
-                                    <a class="nav-link" href="{{url('/freelances')}}">Freelances</a>
+                                    <a class="nav-link" href="{{route('contact.index')}}">Contacts & Messages</a>
                                 </nav>
                             </div>
                             {{-- Ends Emploi --}}
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">
-                            <div class="alert alert-success alert-sm">
-                                Connecté: <span> {{Auth::user()->name}}</span>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -144,5 +139,34 @@
     <script src="{{url('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js')}}" crossorigin="anonymous"></script>
     <script src="{{url('https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js')}}" crossorigin="anonymous"></script>
     <script src="{{asset('admin/assets/demo/datatables-demo.js')}}"></script>
+    <script src="{{asset('js/toastr.min.js')}}"></script>
+
+    <script>
+        var openFile = function(event) {
+          var input = event.target;
+      
+          var reader = new FileReader();
+          reader.onload = function(){
+            var dataURL = reader.result;
+            var output = document.getElementById('output');
+            output.src = dataURL;
+          };
+          reader.readAsDataURL(input.files[0]);
+        };
+      </script>
+
+    <script>
+        CKEDITOR.replace( 'summary-ckeditor' );
+    </script>
+  
+    <script>
+        @if(Session::has('success'))
+            toastr.success("{{ Session::get( 'success' ) }}");
+        @endif
+        @if(Session::has('info'))
+            toastr.info("{{ Session::get( 'info' ) }}");
+        @endif
+    </script>
+   
 </body>
 </html>

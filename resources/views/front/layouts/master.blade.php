@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="{{asset('front/css/owl.transitions.css')}}" />
         <!-- Custom style Css -->
         <link href="{{asset('front/css/style.css')}}" rel="stylesheet">
+        <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
        
     </head>
     <body>
@@ -49,6 +50,7 @@
 
        <!-- custom js -->
        <script src="{{asset('front/js/custom.js')}}"></script>
+       <script src="{{asset('js/toastr.min.js')}}"></script>
 
        <script>
            $(".element").each(function() {
@@ -261,6 +263,15 @@
                 
            })
        </script>
+   
+        <script>
+            @if(Session::has('success'))
+                toastr.success("{{ Session::get( 'success' ) }}");
+            @endif
+            @if(Session::has('info'))
+                toastr.info("{{ Session::get( 'info' ) }}");
+            @endif
+        </script>
        
             
        

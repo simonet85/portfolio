@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'FrontController@index')->name('index');
 Route::get('/work', 'FrontController@all')->name('work');
 Route::resource('articlepost', 'ArticleCatController');
-Route::resource('test','TestController');
+Route::resource('contact','ContactController');
 
 Route::post('/searcharticle', 'ArticleCatController@searcharticle')->name('searcharticle');
 
@@ -31,13 +31,14 @@ Route::resource('articles', 'ArticleController');
 /**
  * Catégories
  */
-Route::get('/categories', function(){
-    return view('admin.categories.index');
-} );
+Route::resource('categories','CategoryController');
+// Route::get('/categories', function(){
+//     return view('admin.categories.index');
+// } );
 
-Route::get('/categories/posts', function(){
-    return view('admin.categories.posts');
-} );
+// Route::get('/categories/posts', function(){
+//     return view('admin.categories.posts');
+// } );
 
 
 /**

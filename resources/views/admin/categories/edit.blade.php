@@ -23,7 +23,7 @@
             <div class="card-body">
                 
                 {{-- @include('inc.messages') --}}
-
+          
             <form class="was-validated" action="{{route('categories.update',['category'=>$category->id])}}" method="POST" enctype="multipart/form-data" id="upload_form">
               @csrf
               @method('PUT')

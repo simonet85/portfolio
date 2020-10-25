@@ -65,7 +65,7 @@ class ArticleController extends Controller
         //Display flash Message
         Session::flash('success', 'Article Ajouter avec succès');
         // return back to products/create
-        return redirect()->back();
+        return redirect()->route('articles.index');
     }
 
         /**
@@ -75,8 +75,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::find($id);
-        return view('admin.articles.edit')->with('article', $article);
+        // $article = Article::find($id);
+        return view('admin.articles.edit')->with('article', Article::find($id))
+                                          ->with('categories', Category::all());
     }
 
      /**
@@ -88,7 +89,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+    //    dd($request->all());
         $this->validate($request, [
             'name' => 'required',
             'category_id' => 'required|numeric',
@@ -115,7 +116,7 @@ class ArticleController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'category_id' => $request->category_id,
-            'image'=>$request->image->getClientOriginalName(),
+            'image'=>$request->image_file->getClientOriginalName(),
         ]);
 
         //Store message in session
@@ -143,6 +144,8 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Article::destroy($id);
+        session()->flash('success', 'Article deleted successfully');
+        return redirect()->route('articles.index');
     }
 }

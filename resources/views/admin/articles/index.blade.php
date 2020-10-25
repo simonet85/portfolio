@@ -49,12 +49,26 @@
                                 </td>
                                 <td>
                                     {{-- {{link_to_route('articles.show', '',$article->id, ['class'=>''])}} --}}
-                                    <a href="{{route('articles.show',['article'=>$article->id])}}" class="btn btn-primary" data-toggle="tooltip modal" data-placement="top" title="voir" ><i class="fas fa-eye"  aria-hidden="true" ></i></a>
+                                    <a href="{{route('articles.show',['article'=>$article->id])}}" class="btn btn-primary" data-toggle="tooltip modal" data-placement="top" title="voir" >
+                                        <i class="fas fa-eye"  aria-hidden="true" ></i>
+                                    </a>
 
-                                    <a href="{{route('articles.edit', ['article'=>$article->id])}}" class="btn btn-warning"  data-toggle="tooltip" data-placement="top" title="modifier"><i class="fas fa-pencil-alt " aria-hidden="true"  ></i></a>
+                                    <a href="{{route('articles.edit', ['article'=>$article->id])}}" class="btn btn-warning"  data-toggle="tooltip" data-placement="top" title="modifier" >
+                                        <i class="fas fa-pencil-alt " aria-hidden="true" ></i>
+                                    </a>
 
-                                    <a href="{{route('articles.destroy', ['article'=>$article->id])}}" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="supprimer"> <i class="fas fa-trash-alt"  aria-hiden="true"></i></a> 
+                                    <a  href="{{route('articles.destroy', ['article'=>$article->id])}}" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="supprimer" onclick=" event.preventDefault(); 
+                                    document.getElementById('form-delete').submit(); 
+                                    return confirm('Do you want to delete');"> 
+                                        <i class="fas fa-trash-alt"  aria-hiden="true"></i>
+                                    </a> 
+
                                 </td>
+                              
+                                <form id="form-delete" method="POST" action="{{route('articles.destroy', ['article'=>$article->id])}}">
+                                    @method('DELETE')
+                                    @csrf
+                                </form>
                             </tr>
                             @endforeach
                         </tbody>

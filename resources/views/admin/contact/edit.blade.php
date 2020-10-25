@@ -24,7 +24,7 @@
                 
                 {{-- @include('inc.messages') --}}
                
-            <form class="was-validated" action="{{route('contacts.update',['contact'=>$contact->id])}}" method="POST" enctype="multipart/form-data" id="upload_form">
+            <form class="was-validated" action="{{route('contact.update',['contact'=>$contact->id])}}" method="POST" enctype="multipart/form-data" id="upload_form">
               @csrf
               @method("PUT")
                 <div class="form-group">
@@ -47,7 +47,7 @@
                     <small class="invalid-feedback" >Modifier la numero</small>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" name="message" id="" rows="3" placeholder="Message" aria-describedby="helpId" required>
+                    <textarea id="summary-ckeditor" class="form-control" name="message" id="" rows="3" placeholder="Message" aria-describedby="helpId" required>
                         {{$contact->message}}
                     </textarea>
                     <small class="invalid-feedback" >Modifier la message</small>

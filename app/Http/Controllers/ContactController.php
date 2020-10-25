@@ -37,6 +37,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+       
         $this->validate($request,[
             'name'=>'required',
             'email'=>'required|email|unique:contacts',
@@ -113,7 +114,7 @@ class ContactController extends Controller
         //Store message in session
         session()->flash('info','Message modifié avec succès.');
         
-        return redirect()->route('contacts.index');
+        return redirect()->route('contact.index');
     }
 
     /**

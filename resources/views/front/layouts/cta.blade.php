@@ -16,29 +16,34 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title mb-0 font-weight-bold" id="exampleModalLongTitle">Je suis disponible pour des Freelances.</h5>
+                                        <h5 class="modal-title mb-0 font-weight-bold" id="exampleModalLongTitle">Evoyez-moi votre projet & Informations.</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
-                                            </button>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="hire-form was-validated">
+                                        <form class="hire-form was-validated" method="POST" action="{{route('contact.store')}}">
+                                            @csrf
                                             <div class="form-group ">
-                                                <input type="text" class="form-control is-invalid" id="fname" placeholder="Prénom" required>
+                                                <input type="text" class="form-control is-invalid" id="fname" name="name" placeholder="Prénom" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control is-invalid" id="semail" placeholder="johndoe@gmail.com" required>
+                                                <input type="text" class="form-control is-invalid" id="semail" 
+                                                name="email"  placeholder="johndoe@gmail.com" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control is-invalid" id="mnumber" placeholder="Votre projet" name="projet" required>
                                             </div>
                                             <div class="form-group">
                                                 <div class="form-group">
-                                                  <textarea class="form-control is-invalid" name="" id="cname" placeholder="Votre Projet" rows="3" required></textarea>
+                                                  <textarea class="form-control is-invalid" name="message" id="cname" placeholder="Votre Message" rows="3" required></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="tel" class="form-control is-invalid" id="mnumber" placeholder="Téléphone" required>
+                                                <input type="tel" class="form-control is-invalid" id="mnumber" placeholder="Téléphone" name="numero" required>
                                             </div>
                                             <div>
-                                                <button class="btn btn-custom w-100">Envoyer</button>
+                                                <input type="submit" name="Envoyer" class="btn btn-custom w-100">
                                             </div>
                                         </form>
                                     </div>
